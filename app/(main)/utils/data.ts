@@ -1,3 +1,5 @@
+"use server"
+
 import { sql } from "@vercel/postgres";
 import { Project } from "./definitions";
 import { unstable_noStore as noStore } from "next/cache";
@@ -23,7 +25,7 @@ export async function getProjects(): Promise<Project[]> {
         return data.rows
     } catch (error) {
         console.log(error)
-        throw new Error("Failed to getProjects()")
+        throw new Error(`Failed to getProjects() ${error}`)
     }
 }
 
