@@ -10,6 +10,10 @@ export default async function EditProjectForm({ id }: EditProjectFormProps) {
 
     const project = await getProjectById(id)
 
+    if ("error" in project) {
+        throw new Error("Failed at fetching project by id!")
+    }
+
     const { title, description } = project
 
     return (

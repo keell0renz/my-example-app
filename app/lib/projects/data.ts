@@ -29,7 +29,7 @@ export async function getProjects(): Promise<Project[]> {
     }
 }
 
-export async function getProjectById(id: string): Promise<Project> {
+export async function getProjectById(id: string): Promise<Project | { error: string }> {
     noStore();
 
     try {
@@ -42,7 +42,7 @@ export async function getProjectById(id: string): Promise<Project> {
         return data.rows[0]
     } catch (error) {
         console.log(error)
-        throw new Error(`Failed to getProjectById() ${error}`)
+        return { error: `Failed to getProjects() ${error}` }
     }
 }
 
