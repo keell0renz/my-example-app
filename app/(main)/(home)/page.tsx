@@ -1,5 +1,5 @@
-import Headline from "../ui/headline"
-import CodeSnippet from "../ui/code-snippet"
+import Headline from "@/app/ui/main/home/headline"
+import CodeSnippet from "@/app/ui/main/home/code-snippet"
 
 export default function Home() {
   return (

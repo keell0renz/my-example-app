@@ -1,4 +1,4 @@
-import { getProjects } from "../../utils/data";
+import { getProjects } from "@/app/lib/projects/data"
 
 interface ProjectCardProps {
     id: string,

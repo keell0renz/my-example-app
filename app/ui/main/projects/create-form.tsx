@@ -1,6 +1,6 @@
 "use client"
 
-import { postProject } from "../../utils/data";
+import { postProject } from "@/app/lib/projects/data";
 import { useState } from "react";
 
 export default function CreateProjectForm() {
