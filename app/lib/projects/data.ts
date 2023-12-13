@@ -29,6 +29,23 @@ export async function getProjects(): Promise<Project[]> {
     }
 }
 
+export async function getProjectById(id: string): Promise<Project> {
+    noStore();
+
+    try {
+        const data = await sql<Project>`
+        SELECT id, title, description, created_at
+        FROM projects
+        WHERE id = ${id};
+        `
+
+        return data.rows[0]
+    } catch (error) {
+        console.log(error)
+        throw new Error(`Failed to getProjectById() ${error}`)
+    }
+}
+
 export async function postProject(form: FormData) {
 
     try {
@@ -89,4 +106,5 @@ export async function deleteProject(id: string) {
     }
 
     revalidatePath("/projects")
+    redirect("/projects")
 }

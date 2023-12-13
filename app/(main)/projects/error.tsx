@@ -1,7 +1,5 @@
-'use client';
- 
-import { useEffect } from 'react';
- 
+"use client"
+
 export default function Error({
   error,
   reset,
@@ -9,13 +7,8 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    // Optionally log the error to an error reporting service
-    console.error(error);
-  }, [error]);
- 
   return (
-    <main className="flex h-full flex-col items-center justify-center">
+    <main className="flex h-full flex-col items-center justify-center text-red-700">
       <h2 className="text-center">Something went wrong!</h2>
       <h3 className='text-center'>{error.message}</h3>
       <button

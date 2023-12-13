@@ -1,4 +1,5 @@
 import { getProjects } from "@/app/lib/projects/data"
+import Link from "next/link"
 
 interface ProjectCardProps {
     id: string,
@@ -9,13 +10,15 @@ interface ProjectCardProps {
 
 function ProjectCard(props: ProjectCardProps) {
     return (
-        <div className="shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 bg-gray-900 hover:bg-gray-800">
-            <div className="flex justify-between">
-                <h2 className="font-bold text-2xl mb-2">{props.title}</h2>
-                <p className="text-grey-dark">{props.created_at.toLocaleDateString()}</p>
+        <Link href={`/projects/${props.id}/edit`}>
+            <div className="shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 bg-gray-900 hover:bg-gray-800">
+                <div className="flex justify-between">
+                    <h2 className="font-bold text-2xl mb-2">{props.title}</h2>
+                    <p className="text-grey-dark">{props.created_at.toLocaleDateString()}</p>
+                </div>
+                <p className="text-grey-darker text-base">{props.description}</p>
             </div>
-            <p className="text-grey-darker text-base">{props.description}</p>
-        </div>
+        </Link>
     );
 }
 

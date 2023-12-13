@@ -17,6 +17,7 @@ function NavbarLink ({ href, title }: NavbarLinkProps) {
 const links = [
     { href: "/", title: "Home" },
     { href: "/projects", title: "Projects" },
+    { href: "/projects/create", title: "Create Project" }
 ]
 
 export default function Navbar () {
